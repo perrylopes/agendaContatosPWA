@@ -4,6 +4,9 @@ texto = #6f7070
 seta = #abacac
 linha = #c3c3c3
 linha-con = #e2e2e2
+verde = #9cc9a6
+azul = #87c2fb
+rosinha = #e3c9ba
 //tools
 //generic
 *
@@ -20,7 +23,7 @@ body
 //objects
 
 .app
-    width: 328px
+    width: 400px
     margin: 0 auto
 .cabecalho
     height: 5rem
@@ -28,13 +31,15 @@ body
     display: flex
     align-items: center
     justify-content: center
-
 .cabecalho__text
+    width: 75%
     color: texto
     text-align: center
     text-transform: uppercase
     font-size: 1.8rem
     font-weight: 400
+
+
 .contato
     height: 4rem
     border-top: 1px solid linha-con
@@ -60,5 +65,80 @@ body
     width: 25%
     text-align: right 
     font-weight: 700
+
+
+.contato__seta_perfil
+    text-align: left 
+.cabecalho__text
+    text-align: inherit
+.perfil__foto
+    width: 140px
+    height: 140px
+    margin: 30px auto 20px auto
+    background-color: circulo
+    border-radius: 100%
+
+.perfil__telefone
+    display: flex
+    margin-top: 20px 
+
+.perfil__numeros
+    width: 65%
+    display: flex
+    flex-direction: column
+
+.perfil__numero
+    margin-bottom: 10px 
+    padding-left: 10px
+    display: flex
+    flex-direction: column
+    color: texto
+
+.perfil__lado
+    display: flex
+    > img
+        margin-left: 50px 
+        width: 40px
+        height: 40px
+ 
+.n1
+    border-left:  8px solid azul
+.n2
+    border-left:  8px solid rosinha
+.n3
+    border-left:  8px solid circulo
+
+
+
+
 //components
+.perfil__nome
+    display: flex
+    align-items: center
+    flex-direction: column
+    margin-bottom: 30px 
+    > span 
+        color: texto 
+        font-size: 2rem
+        font-weight: 700
+        text-transform: uppercase
+    > span:last-child
+        font-size: 1rem  
+
+.perfil__titulo
+    width: 40%
+    padding-right: 10px
+    > span 
+        color: texto
+        font-size: 1.1rem 
+.perfil__informacoes
+    width: 60%
+    padding-left: 10px
+    border-left: 8px solid verde
+    display: flex
+    flex-direction: column
+    > span     
+      color: texto
+
+
 //trumps
