@@ -1,0 +1,64 @@
+//settings
+circulo = #f2f2f2
+texto = #6f7070 
+seta = #abacac
+linha = #c3c3c3
+linha-con = #e2e2e2
+//tools
+//generic
+*
+    margin: 0
+    padding: 0
+    border: 0
+    list-style: none
+    vertical-align: baseline
+//base
+body 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+//objects
+
+.app
+    width: 328px
+    margin: 0 auto
+.cabecalho
+    height: 5rem
+    border-bottom: 1px solid linha
+    display: flex
+    align-items: center
+    justify-content: center
+
+.cabecalho__text
+    color: texto
+    text-align: center
+    text-transform: uppercase
+    font-size: 1.8rem
+    font-weight: 400
+.contato
+    height: 4rem
+    border-top: 1px solid linha-con
+    margin: 0 10px 
+    display flex
+    align-items: center
+    cursor: pointer
+.contato__circulo
+    background-color: circulo
+    width: 10%
+    height: 30px
+    border-radius: 100%
+.contato__texto
+    color: texto
+    font-size: 1.2rem
+    padding-left: 10px
+    width: 65%
+    font-weight: 700
+    text-transform: uppercase
+.contato__seta
+    color: seta
+    font-size: 31px 
+    width: 25%
+    text-align: right 
+    font-weight: 700
+//components
+//trumps
