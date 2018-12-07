@@ -28,20 +28,20 @@ function listaView(success, click){
 
 
 
-function dadosContato(contatos, nome){
+function dadosContato(contatos, nome, click, ligar){
     const app = document.querySelector('.app');
+    
     contatos.forEach( dados => {
             if(dados.nome == nome){
                let numeros = ``
                let dados1 = dados.telefones
-               console.log(dados1);
-                for(let i=0; i < dados1.length; i++){
+               for(let i=0; i < dados1.length; i++){
                      numeros +=
                      `
                      <div class="perfil__lado">
                          <div class="perfil__numero n${i+1}">
-                              <span>${dados1[i].tipoTelefone}</span>
-                              <span>${dados1[i].numero}</span>
+                              <span id="tipoTelefone">${dados1[i].tipoTelefone}</span>
+                              <span id="numero">${dados1[i].numero}</span>
                          </div>
                          <img src="./img/ligar.png">
                      </div>   
@@ -51,8 +51,8 @@ function dadosContato(contatos, nome){
                 app.innerHTML = 
             ` 
                <header class="cabecalho">
-                    <span class="contato__seta contato__seta_perfil><</span>
-                    <h4 class="cabecalho__text cabecalho__texto_perfil">Empresas</h4>
+                    <span class="contato__seta contato__seta_perfil"><</span>
+                    <h4 class="cabecalho__text cabecalho__text_perfil">Empresas</h4>
                </header> 
                <div class="perfil">
                     <div class="perfil__foto"></div>
@@ -87,13 +87,34 @@ function dadosContato(contatos, nome){
             `
            }
        })
-
+       document.querySelector('.contato__seta_perfil').addEventListener('click',()=>{
+          listaView(contatos, click);
+       })
+       ligar();
 }
 
-
+function ligar(nome, tipo, numero){
+     const app = document.querySelector('.app');
+     app.innerHTML = 
+            ` 
+               <header class="cabecalho">
+                    <h4 class="cabecalho__text">LIGANDO</h4>
+               </header> 
+               <div class="perfil">
+                    <div class="perfil__fundo"></div>
+                    <div class="perfil__ligar">
+                         <span>${nome}</span>
+                         <span>${tipo}</span>
+                         <span>${numero}</span>
+                         <img src="./img/desligar.png">
+                    </div>
+               </div>
+            `
+}
 
 
 module.exports = { 
                     listaView,
-                    dadosContato 
+                    dadosContato,
+                    ligar 
                 };

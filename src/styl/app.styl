@@ -69,7 +69,8 @@ body
 
 .contato__seta_perfil
     text-align: left 
-.cabecalho__text
+    cursor pointer
+.cabecalho__text_perfil
     text-align: inherit
 .perfil__foto
     width: 140px
@@ -93,13 +94,18 @@ body
     display: flex
     flex-direction: column
     color: texto
-
+    cursor pointer
 .perfil__lado
     display: flex
     > img
         margin-left: 50px 
         width: 40px
         height: 40px
+.perfil__fundo
+    background-color: circulo
+    height: 300px
+
+
  
 .n1
     border-left:  8px solid azul
@@ -124,6 +130,27 @@ body
         text-transform: uppercase
     > span:last-child
         font-size: 1rem  
+
+.perfil__ligar
+    padding-top: 20px
+    display: flex
+    align-items: center
+    flex-direction: column
+    margin-bottom: 30px 
+    > span 
+        color: texto 
+        font-size: 2rem
+        font-weight: 700
+        text-transform: uppercase
+    > span:nth-child(2n)
+        margin-top: 10px 
+        font-size: 1rem
+    > span:last-child
+        font-size: 2.5rem 
+    >img 
+        margin-top: 18px
+        width: 100px
+        height 100px         
 
 .perfil__titulo
     width: 40%

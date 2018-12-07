@@ -9,9 +9,22 @@ function listaContatos(sucess){
 }
 
 function click(contatos){
-    document.querySelector('.contatos').addEventListener('click', function(event){
+        document.querySelector('.contatos').addEventListener('click', function(event){
         let nome = event.target.parentNode.querySelector('.contato__texto').textContent;
-        view.dadosContato(contatos, nome);
+        view.dadosContato(contatos, nome, click, ligar);
     });
     
 }
+
+function ligar(){
+    document.querySelector('.perfil__numeros').addEventListener('click',function(){
+        let tipoTelefone = event.target.parentNode.querySelector('#tipoTelefone').textContent;
+        let numero = event.target.parentNode.querySelector('#numero').textContent;
+        let nome = document.querySelector('.perfil__nome > span').textContent;
+        view.ligar(nome,tipoTelefone,numero);
+        });
+}
+
+
+    
+
