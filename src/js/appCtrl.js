@@ -21,10 +21,16 @@ function ligar(){
         let tipoTelefone = event.target.parentNode.querySelector('#tipoTelefone').textContent;
         let numero = event.target.parentNode.querySelector('#numero').textContent;
         let nome = document.querySelector('.perfil__nome > span').textContent;
-        view.ligar(nome,tipoTelefone,numero);
+        view.ligar(nome,tipoTelefone,numero, desligar);
         });
 }
 
+function desligar(){
+        document.getElementById('desligar').addEventListener('click', function(){
+            view.desligar();
+        })
+
+}
 
     
 

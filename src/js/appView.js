@@ -93,7 +93,7 @@ function dadosContato(contatos, nome, click, ligar){
        ligar();
 }
 
-function ligar(nome, tipo, numero){
+function ligar(nome, tipo, numero, desligar){
      const app = document.querySelector('.app');
      app.innerHTML = 
             ` 
@@ -106,9 +106,22 @@ function ligar(nome, tipo, numero){
                          <span>${nome}</span>
                          <span>${tipo}</span>
                          <span>${numero}</span>
-                         <img src="./img/desligar.png">
+                         <img id="desligar" src="./img/desligar.png">
                     </div>
                </div>
+            `
+     desligar();       
+}
+
+function desligar(){
+     const app = document.querySelector('.app');
+     app.innerHTML = 
+            ` 
+               <header class="desligar__dark">
+                    <span onclick="window.location.reload()" class="desligar__x">X</span>
+               </header> 
+               <div class="desligar__fundo"></div>
+               <footer class="desligar__dark"></footer>
             `
 }
 
@@ -116,5 +129,6 @@ function ligar(nome, tipo, numero){
 module.exports = { 
                     listaView,
                     dadosContato,
-                    ligar 
+                    ligar,
+                    desligar
                 };
