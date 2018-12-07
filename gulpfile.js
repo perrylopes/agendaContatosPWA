@@ -13,10 +13,21 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify-es').default
 
 
-gulp.task('app', ['html', 'styl','js','img']);
+gulp.task('app', ['html', 'styl','js','img','manifest','ws']);
 gulp.task('html', () => {
     return gulp.src('src/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('dist'))
+
+});
+
+gulp.task('manifest', () => {
+    return gulp.src('src/*.json')
+        .pipe(gulp.dest('dist'))
+
+});
+gulp.task('ws', () => {
+    return gulp.src('src/*.js')
         .pipe(gulp.dest('dist'))
 
 });
@@ -58,8 +69,9 @@ gulp.task('img', function () {
 gulp.task('watch', () => {
     watch('src/**/*.html', () => gulp.start('html'))
     watch('src/**/*.styl', () => gulp.start('styl'))
-    watch('src/**/*.js', () => gulp.start('js'))
-    watch('src/**/*.js', () => gulp.start('img'))
+    watch('src/**/*.js', () => gulp.start('js','ws'))
+    watch('src/**/*.img', () => gulp.start('img'))
+    
 });
 
 gulp.task('server', ['watch'], () => {
