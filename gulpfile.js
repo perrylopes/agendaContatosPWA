@@ -33,14 +33,6 @@ gulp.task('sw', ()=>{
         .pipe(gulp.dest('dist')) 
 });
 
-/*
-gulp.task('ws', () => {
-    return gulp.src('src/*.js')
-        .pipe(gulp.dest('dist'))
-
-}); */
-
-
 gulp.task('styl', () => {
     return gulp.src('src/**/*.styl')
         .pipe(stylus())
@@ -80,15 +72,15 @@ gulp.task('watch', () => {
     watch('src/**/*.styl', () => gulp.start('styl'))
     watch('src/**/*.js', () => gulp.start('js'))
     watch('src/**/*.img', () => gulp.start('img'))
-    watch('src/sw/*.js', () => gulp.start('sw'))
     watch('src/*.json', () => gulp.start('manifest'))
+    watch('src/*.js', () => gulp.start('sw'))
     
 });
 
 gulp.task('server', ['watch'], () => {
     return gulp.src('dist').pipe(server({
         livereload: true,
-        https: false,
+        https: true,
         port: 3030,
         open: true
     }))
