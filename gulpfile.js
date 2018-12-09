@@ -13,7 +13,8 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify-es').default
 
 
-gulp.task('app', ['html', 'styl','js','img','manifest','ws']);
+
+gulp.task('app', ['html', 'styl','js','img','manifest','sw']);
 gulp.task('html', () => {
     return gulp.src('src/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
@@ -26,11 +27,19 @@ gulp.task('manifest', () => {
         .pipe(gulp.dest('dist'))
 
 });
+
+gulp.task('sw', ()=>{
+    return gulp.src(['src/*.js'])
+        .pipe(gulp.dest('dist')) 
+});
+
+/*
 gulp.task('ws', () => {
     return gulp.src('src/*.js')
         .pipe(gulp.dest('dist'))
 
-});
+}); */
+
 
 gulp.task('styl', () => {
     return gulp.src('src/**/*.styl')
@@ -69,15 +78,18 @@ gulp.task('img', function () {
 gulp.task('watch', () => {
     watch('src/**/*.html', () => gulp.start('html'))
     watch('src/**/*.styl', () => gulp.start('styl'))
-    watch('src/**/*.js', () => gulp.start('js','ws'))
+    watch('src/**/*.js', () => gulp.start('js'))
     watch('src/**/*.img', () => gulp.start('img'))
+    watch('src/sw/*.js', () => gulp.start('sw'))
+    watch('src/*.json', () => gulp.start('manifest'))
     
 });
 
 gulp.task('server', ['watch'], () => {
     return gulp.src('dist').pipe(server({
         livereload: true,
-        port: 3000,
+        https: false,
+        port: 3030,
         open: true
     }))
 })

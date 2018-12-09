@@ -1,0 +1,11 @@
+CACHE MANIFEST
+
+#v6
+CACHE:
+css/app.min.css
+js/app.min.js
+img/ligar.png
+img/desligar.png
+
+NETWORK 
+*
